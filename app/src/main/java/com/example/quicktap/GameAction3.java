@@ -22,10 +22,15 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
     private Button b8;
     private Button b9;
 
+    private int count;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_action3);
+
+        count = 1;
+
         b1 = findViewById(R.id.button1);
         b1.setOnClickListener(this);
         b2 = findViewById(R.id.button2);
@@ -70,6 +75,8 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
         b9.setText(number.get(8));
 
 
+
+
     }
 
 
@@ -77,28 +84,102 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         switch(view.getId()) {
             case (R.id.button1):
+                if (b1.getText().toString().equals("" + count)) {
+                    b1.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.button2):
+                if (b2.getText().toString().equals("" + count)) {
+                    b2.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.button3):
+                if (b3.getText().toString().equals("" + count)) {
+                    b3.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.button4):
+                if (b4.getText().toString().equals("" + count)) {
+                    b4.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.button5):
+                if (b5.getText().toString().equals("" + count)) {
+                    b5.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.button6):
+                if (b6.getText().toString().equals("" + count)) {
+                    b6.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.button7):
+                if (b7.getText().toString().equals("" + count)) {
+                    b7.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.button8):
+                if (b8.getText().toString().equals("" + count)) {
+                    b8.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.button9):
+                if (b9.getText().toString().equals("" + count)) {
+                    b9.setVisibility(View.INVISIBLE);
+                    count += 1;
+                }
+                if (count == 10) {
+                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    startActivity(intentScore);
+                }
                 break;
             case (R.id.buttonHome):
                 Intent intentHome = new Intent(getApplication(),MainActivity.class);
                 startActivity(intentHome);
                 break;
             case (R.id.buttonRetry):
+                Intent intentRetry = new Intent(getApplication(),GameAction3.class);
+                startActivity(intentRetry);
                 break;
         }
     }
