@@ -6,12 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class HighScore extends AppCompatActivity implements View.OnClickListener {
+public class GameLevel extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_high_score);
+        setContentView(R.layout.activity_game_level);
 
         ((Button)findViewById(R.id.button3)).setOnClickListener(this);
         ((Button)findViewById(R.id.button4)).setOnClickListener(this);
@@ -32,4 +32,6 @@ public class HighScore extends AppCompatActivity implements View.OnClickListener
                 break;
         }
     }
+
+
 }

@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         title = findViewById(R.id.title);
 
-//        Button start = findViewById(R.id.start);
         ((Button)findViewById(R.id.start)).setOnClickListener(this);
         ((Button)findViewById(R.id.score)).setOnClickListener(this);
 
