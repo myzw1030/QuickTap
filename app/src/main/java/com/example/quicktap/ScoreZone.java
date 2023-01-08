@@ -15,9 +15,14 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_zone);
 
+        Intent intent = getIntent();
+        String score = intent.getStringExtra("score");
+
         TextView textNew = (TextView)findViewById(R.id.textNew);
         TextView textScore = (TextView)findViewById(R.id.textScore);
         TextView textTime = (TextView)findViewById(R.id.textTime);
+
+        textTime.setText(score);
 
         ((Button)findViewById(R.id.buttonHome)).setOnClickListener(this);
         ((Button)findViewById(R.id.buttonRetry)).setOnClickListener(this);

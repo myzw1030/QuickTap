@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
-public class GameAction3 extends AppCompatActivity implements View.OnClickListener {
+public class GameAction3 extends AppCompatActivity implements Runnable, View.OnClickListener {
     private Button b1;
     private Button b2;
     private Button b3;
@@ -21,8 +26,16 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
     private Button b7;
     private Button b8;
     private Button b9;
+    private Button startBtn;
+
+    private TextView textTime;
+
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    private final SimpleDateFormat date = new SimpleDateFormat("mm:ss:SS", Locale.JAPAN);
+    private volatile boolean timephase = false;
 
     private int count;
+    private long startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +62,14 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
         b8.setOnClickListener(this);
         b9 = findViewById(R.id.button9);
         b9.setOnClickListener(this);
+        startBtn = findViewById(R.id.buttonStart);
+        startBtn.setOnClickListener(this);
+
         ((Button)findViewById(R.id.buttonHome)).setOnClickListener(this);
         ((Button)findViewById(R.id.buttonRetry)).setOnClickListener(this);
+
+        textTime = (TextView)findViewById(R.id.textTime);
+        textTime.setText(date.format(0));
 
         List<String> number = new ArrayList<String>();
         number.add("1");
@@ -74,14 +93,11 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
         b8.setText(number.get(7));
         b9.setText(number.get(8));
 
-
-
-
     }
-
 
     @Override
     public void onClick(View view) {
+        Thread thread;
         switch(view.getId()) {
             case (R.id.button1):
                 if (b1.getText().toString().equals("" + count)) {
@@ -89,8 +105,13 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
                 }
                 break;
             case (R.id.button2):
@@ -99,8 +120,13 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
                 }
                 break;
             case (R.id.button3):
@@ -109,8 +135,13 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
                 }
                 break;
             case (R.id.button4):
@@ -119,8 +150,13 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
                 }
                 break;
             case (R.id.button5):
@@ -129,8 +165,13 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
                 }
                 break;
             case (R.id.button6):
@@ -139,8 +180,13 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
                 }
                 break;
             case (R.id.button7):
@@ -149,8 +195,13 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
                 }
                 break;
             case (R.id.button8):
@@ -159,8 +210,13 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
                 }
                 break;
             case (R.id.button9):
@@ -169,18 +225,61 @@ public class GameAction3 extends AppCompatActivity implements View.OnClickListen
                     count += 1;
                 }
                 if (count == 10) {
-                    Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    timephase = true;
+                    textTime.setText(date.format(0));
+                    /*Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                    intentScore.putExtra("score", textTime.getText().toString());
                     startActivity(intentScore);
+
+                     */
+
                 }
+                break;
+            case(R.id.buttonStart):
+                startBtn.setVisibility(View.INVISIBLE);
+                timephase = false;
+                thread = new Thread(this);
+                thread.start();
+                startTime = System.currentTimeMillis();
                 break;
             case (R.id.buttonHome):
                 Intent intentHome = new Intent(getApplication(),MainActivity.class);
                 startActivity(intentHome);
                 break;
             case (R.id.buttonRetry):
+                Intent intentScore = new Intent(getApplication(),ScoreZone.class);
+                intentScore.putExtra("score", textTime.getText().toString());
+                startActivity(intentScore);
+                /*
                 Intent intentRetry = new Intent(getApplication(),GameAction3.class);
                 startActivity(intentRetry);
+
+                 */
                 break;
+        }
+    }
+
+    @Override
+    public void run() {
+
+        int period = 10;
+
+        while(!timephase) {
+            try {
+                Thread.sleep(period);
+            } catch(InterruptedException e) {
+                e.printStackTrace();
+                timephase = true;
+            }
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    long endTime = System.currentTimeMillis();
+                    long nowTime = (endTime - startTime);
+
+                    textTime.setText(date.format(nowTime));
+                }
+            });
         }
     }
 }
