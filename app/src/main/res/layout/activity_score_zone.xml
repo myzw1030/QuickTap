@@ -9,7 +9,15 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="TIME"
+        android:textSize="50dp"
+        android:gravity="center"/>
 
     <LinearLayout
         android:layout_width="300dp"
@@ -31,12 +39,12 @@
             android:id="@+id/textScore"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="SCORE"
+            android:text="HIGHSCORE"
             android:textSize="30dp"
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/textTime"
+            android:id="@+id/textHighScoreTime"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:text="TIME"

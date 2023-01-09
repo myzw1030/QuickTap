@@ -18,9 +18,10 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         Intent intent = getIntent();
         String score = intent.getStringExtra("score");
 
+        TextView textTime = (TextView)findViewById(R.id.textTime);
         TextView textNew = (TextView)findViewById(R.id.textNew);
         TextView textScore = (TextView)findViewById(R.id.textScore);
-        TextView textTime = (TextView)findViewById(R.id.textTime);
+        TextView textHighScoreTime = (TextView)findViewById(R.id.textHighScoreTime);
 
         textTime.setText(score);
 
