@@ -3,6 +3,7 @@ package com.example.quicktap;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -41,6 +42,8 @@ public class GameAction3 extends AppCompatActivity implements Runnable, View.OnC
 
     private int count;
     private long startTime;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
