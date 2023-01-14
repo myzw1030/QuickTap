@@ -46,15 +46,22 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         int s1 = Integer.parseInt(score1.substring(3,5));
         int ms1 = Integer.parseInt(score1.substring(6,8));
 
-        if (m <= m1) {
-            if (s <= s1) {
+        if (m < m1) {
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("score1", score);
+            edit.commit();
+        } else if (m == m1) {
+            if (s < s1) {
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("score1", score);
+                edit.commit();
+            } else if (s == s1) {
                 if (ms <= ms1) {
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("score1", score);
                     edit.commit();
                 }
             }
-
         }
 
 
