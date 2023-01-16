@@ -29,14 +29,27 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         TextView textTime = (TextView)findViewById(R.id.textTime);
         TextView textNew = (TextView)findViewById(R.id.textNew);
         TextView textScore = (TextView)findViewById(R.id.textScore);
-        TextView textHighScoreTime = (TextView)findViewById(R.id.textHighScoreTime);
+        TextView textHighScoreTime1 = (TextView)findViewById(R.id.textHighScoreTime1);
+        TextView textHighScoreTime2 = (TextView)findViewById(R.id.textHighScoreTime2);
+        TextView textHighScoreTime3 = (TextView)findViewById(R.id.textHighScoreTime3);
+        TextView textHighScoreTime4 = (TextView)findViewById(R.id.textHighScoreTime4);
+        TextView textHighScoreTime5 = (TextView)findViewById(R.id.textHighScoreTime5);
 
         ((Button)findViewById(R.id.buttonHome)).setOnClickListener(this);
         ((Button)findViewById(R.id.buttonRetry)).setOnClickListener(this);
 
         textTime.setText(score);
-        String score1 = pref.getString("score1", "");
-        textHighScoreTime.setText("" + score1);
+        String score1 = pref.getString("score1", "59:59:99");
+        String score2 = pref.getString("score2", "59:59:99");
+        String score3 = pref.getString("score3", "59:59:99");
+        String score4 = pref.getString("score4", "59:59:99");
+        String score5 = pref.getString("score5", "59:59:99");
+
+        textHighScoreTime1.setText("" + score1);
+        textHighScoreTime2.setText("" + score1);
+        textHighScoreTime3.setText("" + score1);
+        textHighScoreTime4.setText("" + score1);
+        textHighScoreTime5.setText("" + score1);
 
         int m = Integer.parseInt(score.substring(0, 2));
         int s = Integer.parseInt(score.substring(3,5));
@@ -45,6 +58,22 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         int m1 = Integer.parseInt(score1.substring(0, 2));
         int s1 = Integer.parseInt(score1.substring(3,5));
         int ms1 = Integer.parseInt(score1.substring(6,8));
+
+        int m2 = Integer.parseInt(score2.substring(0, 2));
+        int s2 = Integer.parseInt(score2.substring(3,5));
+        int ms2 = Integer.parseInt(score2.substring(6,8));
+
+        int m3 = Integer.parseInt(score3.substring(0, 2));
+        int s3 = Integer.parseInt(score3.substring(3,5));
+        int ms3 = Integer.parseInt(score3.substring(6,8));
+
+        int m4 = Integer.parseInt(score4.substring(0, 2));
+        int s4 = Integer.parseInt(score4.substring(3,5));
+        int ms4 = Integer.parseInt(score4.substring(6,8));
+
+        int m5 = Integer.parseInt(score5.substring(0, 2));
+        int s5 = Integer.parseInt(score5.substring(3,5));
+        int ms5 = Integer.parseInt(score5.substring(6,8));
 
         if (m < m1) {
             SharedPreferences.Editor edit = pref.edit();

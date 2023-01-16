@@ -7,9 +7,15 @@
     tools:context=".ScoreZone"
     android:orientation="vertical">
 
-    <Space
+
+    <TextView
+        android:id="@+id/textNew"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:text="NEW RECORD"
+        android:textSize="30dp"
+        android:textColor="#F00"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/textTime"
@@ -27,15 +33,6 @@
         >
 
         <TextView
-            android:id="@+id/textNew"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="NEW RECORD"
-            android:textSize="30dp"
-            android:textColor="#F00"
-            android:gravity="center"/>
-
-        <TextView
             android:id="@+id/textScore"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -44,12 +41,45 @@
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/textHighScoreTime"
+            android:id="@+id/textHighScoreTime1"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="TIME"
+            android:layout_height="40dp"
+            android:text="1. 59:59:99"
             android:textSize="30dp"
             android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/textHighScoreTime2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="2. 59:59:99"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/textHighScoreTime3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="3. 59:59:99"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/textHighScoreTime4"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="4. 59:59:99"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/textHighScoreTime5"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="5. 59:59:99"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
     </LinearLayout>
 
     <Space
