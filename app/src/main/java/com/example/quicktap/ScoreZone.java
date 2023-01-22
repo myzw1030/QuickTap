@@ -14,6 +14,37 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
 
     public SharedPreferences pref;
 
+    private int m;
+    private int s;
+    private int ms;
+
+    private int m1;
+    private int s1;
+    private int ms1;
+
+    private int m2;
+    private int s2;
+    private int ms2;
+
+    private int m3;
+    private int s3;
+    private int ms3;
+
+    private int m4;
+    private int s4;
+    private int ms4;
+
+    private int m5;
+    private int s5;
+    private int ms5;
+
+    private String score;
+    private String score1;
+    private String score2;
+    private String score3;
+    private String score4;
+    private String score5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +52,8 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
 
         pref = getSharedPreferences("pref", MODE_PRIVATE);
 
-
-
         Intent intent = getIntent();
-        String score = intent.getStringExtra("score");
+        score = intent.getStringExtra("score");
 
         TextView textTime = (TextView)findViewById(R.id.textTime);
         TextView textNew = (TextView)findViewById(R.id.textNew);
@@ -39,61 +68,197 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         ((Button)findViewById(R.id.buttonRetry)).setOnClickListener(this);
 
         textTime.setText(score);
-        String score1 = pref.getString("score1", "59:59:99");
-        String score2 = pref.getString("score2", "59:59:99");
-        String score3 = pref.getString("score3", "59:59:99");
-        String score4 = pref.getString("score4", "59:59:99");
-        String score5 = pref.getString("score5", "59:59:99");
+        score1 = pref.getString("score1", "59:59:99");
+        score2 = pref.getString("score2", "59:59:99");
+        score3 = pref.getString("score3", "59:59:99");
+        score4 = pref.getString("score4", "59:59:99");
+        score5 = pref.getString("score5", "59:59:99");
 
-        textHighScoreTime1.setText("" + score1);
-        textHighScoreTime2.setText("" + score1);
-        textHighScoreTime3.setText("" + score1);
-        textHighScoreTime4.setText("" + score1);
-        textHighScoreTime5.setText("" + score1);
+        textHighScoreTime1.setText(score1);
+        textHighScoreTime2.setText(score2);
+        textHighScoreTime3.setText(score3);
+        textHighScoreTime4.setText(score4);
+        textHighScoreTime5.setText(score5);
 
-        int m = Integer.parseInt(score.substring(0, 2));
-        int s = Integer.parseInt(score.substring(3,5));
-        int ms = Integer.parseInt(score.substring(6,8));
+        m = Integer.parseInt(score.substring(0, 2));
+        s = Integer.parseInt(score.substring(3,5));
+        ms = Integer.parseInt(score.substring(6,8));
 
-        int m1 = Integer.parseInt(score1.substring(0, 2));
-        int s1 = Integer.parseInt(score1.substring(3,5));
-        int ms1 = Integer.parseInt(score1.substring(6,8));
+        m1 = Integer.parseInt(score1.substring(0, 2));
+        s1 = Integer.parseInt(score1.substring(3,5));
+        ms1 = Integer.parseInt(score1.substring(6,8));
 
-        int m2 = Integer.parseInt(score2.substring(0, 2));
-        int s2 = Integer.parseInt(score2.substring(3,5));
-        int ms2 = Integer.parseInt(score2.substring(6,8));
+        m2 = Integer.parseInt(score2.substring(0, 2));
+        s2 = Integer.parseInt(score2.substring(3,5));
+        ms2 = Integer.parseInt(score2.substring(6,8));
 
-        int m3 = Integer.parseInt(score3.substring(0, 2));
-        int s3 = Integer.parseInt(score3.substring(3,5));
-        int ms3 = Integer.parseInt(score3.substring(6,8));
+        m3 = Integer.parseInt(score3.substring(0, 2));
+        s3 = Integer.parseInt(score3.substring(3,5));
+        ms3 = Integer.parseInt(score3.substring(6,8));
 
-        int m4 = Integer.parseInt(score4.substring(0, 2));
-        int s4 = Integer.parseInt(score4.substring(3,5));
-        int ms4 = Integer.parseInt(score4.substring(6,8));
+        m4 = Integer.parseInt(score4.substring(0, 2));
+        s4 = Integer.parseInt(score4.substring(3,5));
+        ms4 = Integer.parseInt(score4.substring(6,8));
 
-        int m5 = Integer.parseInt(score5.substring(0, 2));
-        int s5 = Integer.parseInt(score5.substring(3,5));
-        int ms5 = Integer.parseInt(score5.substring(6,8));
+        m5 = Integer.parseInt(score5.substring(0, 2));
+        s5 = Integer.parseInt(score5.substring(3,5));
+        ms5 = Integer.parseInt(score5.substring(6,8));
+
+
 
         if (m < m1) {
             SharedPreferences.Editor edit = pref.edit();
             edit.putString("score1", score);
+            edit.putString("score2", score1);
+            edit.putString("score3", score2);
+            edit.putString("score4", score3);
+            edit.putString("score5", score4);
             edit.commit();
         } else if (m == m1) {
             if (s < s1) {
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString("score1", score);
+                edit.putString("score2", score1);
+                edit.putString("score3", score2);
+                edit.putString("score4", score3);
+                edit.putString("score5", score4);
                 edit.commit();
             } else if (s == s1) {
                 if (ms <= ms1) {
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("score1", score);
+                    edit.putString("score2", score1);
+                    edit.putString("score3", score2);
+                    edit.putString("score4", score3);
+                    edit.putString("score5", score4);
+                    edit.commit();
+                } else if (ms >= ms1) {
+                    score2check();
+                }
+            } else if (s > s1) {
+                score2check();
+            }
+        } else if (m > m1) {
+            score2check();
+        }
+
+
+    }
+
+    private void score5check() {
+        if (m < m5) {
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("score5", score);
+            edit.commit();
+        } else if (m == m5) {
+            if (s < s5) {
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("score5", score);
+                edit.commit();
+            } else if (s == s5) {
+                if (ms < ms5) {
+                    SharedPreferences.Editor edit = pref.edit();
+                    edit.putString("score5", score);
                     edit.commit();
                 }
             }
         }
+    }
 
+    private void score4check() {
+        if (m < m4) {
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("score4", score);
+            edit.putString("score5", score4);
+            edit.commit();
+        } else if (m == m4) {
+            if (s < s4) {
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("score4", score3);
+                edit.putString("score5", score4);
+                edit.commit();
+            } else if (s == s4) {
+                if (ms < ms4) {
+                    SharedPreferences.Editor edit = pref.edit();
+                    edit.putString("score4", score3);
+                    edit.putString("score5", score4);
+                    edit.commit();
+                } else if (ms >= ms4) {
+                    score5check();
+                }
+            } else if (s > s4) {
+                score5check();
+            }
+        } else if (m > m4) {
+            score5check();
+        }
+    }
 
+    private void score3check() {
+        if (m < m3) {
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("score3", score);
+            edit.putString("score4", score3);
+            edit.putString("score5", score4);
+            edit.commit();
+        } else if (m == m3) {
+            if ( s < s3) {
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("score3", score2);
+                edit.putString("score4", score3);
+                edit.putString("score5", score4);
+                edit.commit();
+            } else if (s == s3) {
+                if (ms < ms3) {
+                    SharedPreferences.Editor edit = pref.edit();
+                    edit.putString("score3", score2);
+                    edit.putString("score4", score3);
+                    edit.putString("score5", score4);
+                    edit.commit();
+                } else if (ms >= ms3) {
+                    score4check();
+                }
+            } else if (s > s3) {
+                score4check();
+            }
+        } else if (m > m3) {
+            score4check();
+        }
+    }
+
+    private void score2check() {
+        if (m < m2) {
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("score2", score);
+            edit.putString("score3", score2);
+            edit.putString("score4", score3);
+            edit.putString("score5", score4);
+            edit.commit();
+        } else if (m == m2) {
+            if (s < s2) {
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("score2", score);
+                edit.putString("score3", score2);
+                edit.putString("score4", score3);
+                edit.putString("score5", score4);
+                edit.commit();
+            } else if (s == s2) {
+                if (ms < ms2) {
+                    SharedPreferences.Editor edit = pref.edit();
+                    edit.putString("score2", score);
+                    edit.putString("score3", score2);
+                    edit.putString("score4", score3);
+                    edit.putString("score5", score4);
+                    edit.commit();
+                } else if (ms >= ms2) {
+                    score3check();
+                }
+            } else if (s > s2) {
+                score3check();
+            }
+        } else if (m > m2) {
+            score3check();
+        }
     }
 
     @Override
