@@ -45,6 +45,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
     private String score4;
     private String score5;
 
+    private TextView textHighScoreTime1;
+    private TextView textHighScoreTime2;
+    private TextView textHighScoreTime3;
+    private TextView textHighScoreTime4;
+    private TextView textHighScoreTime5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,11 +64,11 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         TextView textTime = (TextView)findViewById(R.id.textTime);
         TextView textNew = (TextView)findViewById(R.id.textNew);
         TextView textScore = (TextView)findViewById(R.id.textScore);
-        TextView textHighScoreTime1 = (TextView)findViewById(R.id.textHighScoreTime1);
-        TextView textHighScoreTime2 = (TextView)findViewById(R.id.textHighScoreTime2);
-        TextView textHighScoreTime3 = (TextView)findViewById(R.id.textHighScoreTime3);
-        TextView textHighScoreTime4 = (TextView)findViewById(R.id.textHighScoreTime4);
-        TextView textHighScoreTime5 = (TextView)findViewById(R.id.textHighScoreTime5);
+        textHighScoreTime1 = (TextView)findViewById(R.id.textHighScoreTime1);
+        textHighScoreTime2 = (TextView)findViewById(R.id.textHighScoreTime2);
+        textHighScoreTime3 = (TextView)findViewById(R.id.textHighScoreTime3);
+        textHighScoreTime4 = (TextView)findViewById(R.id.textHighScoreTime4);
+        textHighScoreTime5 = (TextView)findViewById(R.id.textHighScoreTime5);
 
         ((Button)findViewById(R.id.buttonHome)).setOnClickListener(this);
         ((Button)findViewById(R.id.buttonRetry)).setOnClickListener(this);
@@ -114,6 +120,11 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             edit.putString("score4", score3);
             edit.putString("score5", score4);
             edit.commit();
+            textHighScoreTime1.setText(score);
+            textHighScoreTime1.setText(score1);
+            textHighScoreTime1.setText(score2);
+            textHighScoreTime1.setText(score3);
+            textHighScoreTime1.setText(score4);
         } else if (m == m1) {
             if (s < s1) {
                 SharedPreferences.Editor edit = pref.edit();
@@ -123,8 +134,13 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                 edit.putString("score4", score3);
                 edit.putString("score5", score4);
                 edit.commit();
+                textHighScoreTime1.setText(score);
+                textHighScoreTime1.setText(score1);
+                textHighScoreTime1.setText(score2);
+                textHighScoreTime1.setText(score3);
+                textHighScoreTime1.setText(score4);
             } else if (s == s1) {
-                if (ms <= ms1) {
+                if (ms < ms1) {
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("score1", score);
                     edit.putString("score2", score1);
@@ -132,6 +148,11 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                     edit.putString("score4", score3);
                     edit.putString("score5", score4);
                     edit.commit();
+                    textHighScoreTime1.setText(score);
+                    textHighScoreTime1.setText(score1);
+                    textHighScoreTime1.setText(score2);
+                    textHighScoreTime1.setText(score3);
+                    textHighScoreTime1.setText(score4);
                 } else if (ms >= ms1) {
                     score2check();
                 }
@@ -150,16 +171,31 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             SharedPreferences.Editor edit = pref.edit();
             edit.putString("score5", score);
             edit.commit();
+            textHighScoreTime1.setText(score1);
+            textHighScoreTime2.setText(score2);
+            textHighScoreTime3.setText(score3);
+            textHighScoreTime4.setText(score4);
+            textHighScoreTime5.setText(score);
         } else if (m == m5) {
             if (s < s5) {
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString("score5", score);
                 edit.commit();
+                textHighScoreTime1.setText(score1);
+                textHighScoreTime2.setText(score2);
+                textHighScoreTime3.setText(score3);
+                textHighScoreTime4.setText(score4);
+                textHighScoreTime5.setText(score);
             } else if (s == s5) {
                 if (ms < ms5) {
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("score5", score);
                     edit.commit();
+                    textHighScoreTime1.setText(score1);
+                    textHighScoreTime2.setText(score2);
+                    textHighScoreTime3.setText(score3);
+                    textHighScoreTime4.setText(score4);
+                    textHighScoreTime5.setText(score);
                 }
             }
         }
@@ -171,18 +207,33 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             edit.putString("score4", score);
             edit.putString("score5", score4);
             edit.commit();
+            textHighScoreTime1.setText(score1);
+            textHighScoreTime2.setText(score2);
+            textHighScoreTime3.setText(score3);
+            textHighScoreTime4.setText(score);
+            textHighScoreTime5.setText(score4);
         } else if (m == m4) {
             if (s < s4) {
                 SharedPreferences.Editor edit = pref.edit();
-                edit.putString("score4", score3);
+                edit.putString("score4", score);
                 edit.putString("score5", score4);
                 edit.commit();
+                textHighScoreTime1.setText(score1);
+                textHighScoreTime2.setText(score2);
+                textHighScoreTime3.setText(score3);
+                textHighScoreTime4.setText(score);
+                textHighScoreTime5.setText(score4);
             } else if (s == s4) {
                 if (ms < ms4) {
                     SharedPreferences.Editor edit = pref.edit();
-                    edit.putString("score4", score3);
+                    edit.putString("score4", score);
                     edit.putString("score5", score4);
                     edit.commit();
+                    textHighScoreTime1.setText(score1);
+                    textHighScoreTime2.setText(score2);
+                    textHighScoreTime3.setText(score3);
+                    textHighScoreTime4.setText(score);
+                    textHighScoreTime5.setText(score4);
                 } else if (ms >= ms4) {
                     score5check();
                 }
@@ -201,20 +252,35 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             edit.putString("score4", score3);
             edit.putString("score5", score4);
             edit.commit();
+            textHighScoreTime1.setText(score1);
+            textHighScoreTime2.setText(score2);
+            textHighScoreTime3.setText(score);
+            textHighScoreTime4.setText(score3);
+            textHighScoreTime5.setText(score4);
         } else if (m == m3) {
             if ( s < s3) {
                 SharedPreferences.Editor edit = pref.edit();
-                edit.putString("score3", score2);
+                edit.putString("score3", score);
                 edit.putString("score4", score3);
                 edit.putString("score5", score4);
                 edit.commit();
+                textHighScoreTime1.setText(score1);
+                textHighScoreTime2.setText(score2);
+                textHighScoreTime3.setText(score);
+                textHighScoreTime4.setText(score3);
+                textHighScoreTime5.setText(score4);
             } else if (s == s3) {
                 if (ms < ms3) {
                     SharedPreferences.Editor edit = pref.edit();
-                    edit.putString("score3", score2);
+                    edit.putString("score3", score);
                     edit.putString("score4", score3);
                     edit.putString("score5", score4);
                     edit.commit();
+                    textHighScoreTime1.setText(score1);
+                    textHighScoreTime2.setText(score2);
+                    textHighScoreTime3.setText(score);
+                    textHighScoreTime4.setText(score3);
+                    textHighScoreTime5.setText(score4);
                 } else if (ms >= ms3) {
                     score4check();
                 }
@@ -226,6 +292,7 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         }
     }
 
+
     private void score2check() {
         if (m < m2) {
             SharedPreferences.Editor edit = pref.edit();
@@ -234,6 +301,11 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             edit.putString("score4", score3);
             edit.putString("score5", score4);
             edit.commit();
+            textHighScoreTime1.setText(score1);
+            textHighScoreTime2.setText(score);
+            textHighScoreTime3.setText(score2);
+            textHighScoreTime4.setText(score3);
+            textHighScoreTime5.setText(score4);
         } else if (m == m2) {
             if (s < s2) {
                 SharedPreferences.Editor edit = pref.edit();
@@ -242,6 +314,11 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                 edit.putString("score4", score3);
                 edit.putString("score5", score4);
                 edit.commit();
+                textHighScoreTime1.setText(score1);
+                textHighScoreTime2.setText(score);
+                textHighScoreTime3.setText(score2);
+                textHighScoreTime4.setText(score3);
+                textHighScoreTime5.setText(score4);
             } else if (s == s2) {
                 if (ms < ms2) {
                     SharedPreferences.Editor edit = pref.edit();
@@ -250,6 +327,11 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                     edit.putString("score4", score3);
                     edit.putString("score5", score4);
                     edit.commit();
+                    textHighScoreTime1.setText(score1);
+                    textHighScoreTime2.setText(score);
+                    textHighScoreTime3.setText(score2);
+                    textHighScoreTime4.setText(score3);
+                    textHighScoreTime5.setText(score4);
                 } else if (ms >= ms2) {
                     score3check();
                 }
