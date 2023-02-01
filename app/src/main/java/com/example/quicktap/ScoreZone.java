@@ -50,6 +50,7 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
     private TextView textHighScoreTime3;
     private TextView textHighScoreTime4;
     private TextView textHighScoreTime5;
+    private TextView textNew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +63,8 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         score = intent.getStringExtra("score");
 
         TextView textTime = (TextView)findViewById(R.id.textTime);
-        TextView textNew = (TextView)findViewById(R.id.textNew);
         TextView textScore = (TextView)findViewById(R.id.textScore);
+        textNew = (TextView)findViewById(R.id.textNew);
         textHighScoreTime1 = (TextView)findViewById(R.id.textHighScoreTime1);
         textHighScoreTime2 = (TextView)findViewById(R.id.textHighScoreTime2);
         textHighScoreTime3 = (TextView)findViewById(R.id.textHighScoreTime3);
@@ -74,17 +75,18 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
         ((Button)findViewById(R.id.buttonRetry)).setOnClickListener(this);
 
         textTime.setText(score);
+        textNew.setVisibility(View.INVISIBLE);
         score1 = pref.getString("score1", "59:59:99");
         score2 = pref.getString("score2", "59:59:99");
         score3 = pref.getString("score3", "59:59:99");
         score4 = pref.getString("score4", "59:59:99");
         score5 = pref.getString("score5", "59:59:99");
 
-        textHighScoreTime1.setText(score1);
-        textHighScoreTime2.setText(score2);
-        textHighScoreTime3.setText(score3);
-        textHighScoreTime4.setText(score4);
-        textHighScoreTime5.setText(score5);
+        textHighScoreTime1.setText(String.format("1. %s", score1));
+        textHighScoreTime2.setText(String.format("2. %s", score2));
+        textHighScoreTime3.setText(String.format("3. %s", score3));
+        textHighScoreTime4.setText(String.format("4. %s", score4));
+        textHighScoreTime5.setText(String.format("5. %s", score5));
 
         m = Integer.parseInt(score.substring(0, 2));
         s = Integer.parseInt(score.substring(3,5));
@@ -120,11 +122,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             edit.putString("score4", score3);
             edit.putString("score5", score4);
             edit.commit();
-            textHighScoreTime1.setText(score);
-            textHighScoreTime1.setText(score1);
-            textHighScoreTime1.setText(score2);
-            textHighScoreTime1.setText(score3);
-            textHighScoreTime1.setText(score4);
+            textHighScoreTime1.setText(String.format("1. %s", score));
+            textHighScoreTime2.setText(String.format("2. %s", score1));
+            textHighScoreTime3.setText(String.format("3. %s", score2));
+            textHighScoreTime4.setText(String.format("4. %s", score3));
+            textHighScoreTime5.setText(String.format("5. %s", score4));
+            textNew.setVisibility(View.VISIBLE);
         } else if (m == m1) {
             if (s < s1) {
                 SharedPreferences.Editor edit = pref.edit();
@@ -134,11 +137,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                 edit.putString("score4", score3);
                 edit.putString("score5", score4);
                 edit.commit();
-                textHighScoreTime1.setText(score);
-                textHighScoreTime1.setText(score1);
-                textHighScoreTime1.setText(score2);
-                textHighScoreTime1.setText(score3);
-                textHighScoreTime1.setText(score4);
+                textHighScoreTime1.setText(String.format("1. %s", score));
+                textHighScoreTime2.setText(String.format("2. %s", score1));
+                textHighScoreTime3.setText(String.format("3. %s", score2));
+                textHighScoreTime4.setText(String.format("4. %s", score3));
+                textHighScoreTime5.setText(String.format("5. %s", score4));
+                textNew.setVisibility(View.VISIBLE);
             } else if (s == s1) {
                 if (ms < ms1) {
                     SharedPreferences.Editor edit = pref.edit();
@@ -148,11 +152,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                     edit.putString("score4", score3);
                     edit.putString("score5", score4);
                     edit.commit();
-                    textHighScoreTime1.setText(score);
-                    textHighScoreTime1.setText(score1);
-                    textHighScoreTime1.setText(score2);
-                    textHighScoreTime1.setText(score3);
-                    textHighScoreTime1.setText(score4);
+                    textHighScoreTime1.setText(String.format("1. %s", score));
+                    textHighScoreTime2.setText(String.format("2. %s", score1));
+                    textHighScoreTime3.setText(String.format("3. %s", score2));
+                    textHighScoreTime4.setText(String.format("4. %s", score3));
+                    textHighScoreTime5.setText(String.format("5. %s", score4));
+                    textNew.setVisibility(View.VISIBLE);
                 } else if (ms >= ms1) {
                     score2check();
                 }
@@ -171,31 +176,34 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             SharedPreferences.Editor edit = pref.edit();
             edit.putString("score5", score);
             edit.commit();
-            textHighScoreTime1.setText(score1);
-            textHighScoreTime2.setText(score2);
-            textHighScoreTime3.setText(score3);
-            textHighScoreTime4.setText(score4);
-            textHighScoreTime5.setText(score);
+            textHighScoreTime1.setText(String.format("1. %s", score1));
+            textHighScoreTime2.setText(String.format("2. %s", score2));
+            textHighScoreTime3.setText(String.format("3. %s", score3));
+            textHighScoreTime4.setText(String.format("4. %s", score4));
+            textHighScoreTime5.setText(String.format("5. %s", score));
+            textNew.setVisibility(View.VISIBLE);
         } else if (m == m5) {
             if (s < s5) {
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString("score5", score);
                 edit.commit();
-                textHighScoreTime1.setText(score1);
-                textHighScoreTime2.setText(score2);
-                textHighScoreTime3.setText(score3);
-                textHighScoreTime4.setText(score4);
-                textHighScoreTime5.setText(score);
+                textHighScoreTime1.setText(String.format("1. %s", score1));
+                textHighScoreTime2.setText(String.format("2. %s", score2));
+                textHighScoreTime3.setText(String.format("3. %s", score3));
+                textHighScoreTime4.setText(String.format("4. %s", score4));
+                textHighScoreTime5.setText(String.format("5. %s", score));
+                textNew.setVisibility(View.VISIBLE);
             } else if (s == s5) {
                 if (ms < ms5) {
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("score5", score);
                     edit.commit();
-                    textHighScoreTime1.setText(score1);
-                    textHighScoreTime2.setText(score2);
-                    textHighScoreTime3.setText(score3);
-                    textHighScoreTime4.setText(score4);
-                    textHighScoreTime5.setText(score);
+                    textHighScoreTime1.setText(String.format("1. %s", score1));
+                    textHighScoreTime2.setText(String.format("2. %s", score2));
+                    textHighScoreTime3.setText(String.format("3. %s", score3));
+                    textHighScoreTime4.setText(String.format("4. %s", score4));
+                    textHighScoreTime5.setText(String.format("5. %s", score));
+                    textNew.setVisibility(View.VISIBLE);
                 }
             }
         }
@@ -207,33 +215,36 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             edit.putString("score4", score);
             edit.putString("score5", score4);
             edit.commit();
-            textHighScoreTime1.setText(score1);
-            textHighScoreTime2.setText(score2);
-            textHighScoreTime3.setText(score3);
-            textHighScoreTime4.setText(score);
-            textHighScoreTime5.setText(score4);
+            textHighScoreTime1.setText(String.format("1. %s", score1));
+            textHighScoreTime2.setText(String.format("2. %s", score2));
+            textHighScoreTime3.setText(String.format("3. %s", score3));
+            textHighScoreTime4.setText(String.format("4. %s", score));
+            textHighScoreTime5.setText(String.format("5. %s", score4));
+            textNew.setVisibility(View.VISIBLE);
         } else if (m == m4) {
             if (s < s4) {
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString("score4", score);
                 edit.putString("score5", score4);
                 edit.commit();
-                textHighScoreTime1.setText(score1);
-                textHighScoreTime2.setText(score2);
-                textHighScoreTime3.setText(score3);
-                textHighScoreTime4.setText(score);
-                textHighScoreTime5.setText(score4);
+                textHighScoreTime1.setText(String.format("1. %s", score1));
+                textHighScoreTime2.setText(String.format("2. %s", score2));
+                textHighScoreTime3.setText(String.format("3. %s", score3));
+                textHighScoreTime4.setText(String.format("4. %s", score));
+                textHighScoreTime5.setText(String.format("5. %s", score4));
+                textNew.setVisibility(View.VISIBLE);
             } else if (s == s4) {
                 if (ms < ms4) {
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("score4", score);
                     edit.putString("score5", score4);
                     edit.commit();
-                    textHighScoreTime1.setText(score1);
-                    textHighScoreTime2.setText(score2);
-                    textHighScoreTime3.setText(score3);
-                    textHighScoreTime4.setText(score);
-                    textHighScoreTime5.setText(score4);
+                    textHighScoreTime1.setText(String.format("1. %s", score1));
+                    textHighScoreTime2.setText(String.format("2. %s", score2));
+                    textHighScoreTime3.setText(String.format("3. %s", score3));
+                    textHighScoreTime4.setText(String.format("4. %s", score));
+                    textHighScoreTime5.setText(String.format("5. %s", score4));
+                    textNew.setVisibility(View.VISIBLE);
                 } else if (ms >= ms4) {
                     score5check();
                 }
@@ -252,11 +263,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             edit.putString("score4", score3);
             edit.putString("score5", score4);
             edit.commit();
-            textHighScoreTime1.setText(score1);
-            textHighScoreTime2.setText(score2);
-            textHighScoreTime3.setText(score);
-            textHighScoreTime4.setText(score3);
-            textHighScoreTime5.setText(score4);
+            textHighScoreTime1.setText(String.format("1. %s", score1));
+            textHighScoreTime2.setText(String.format("2. %s", score2));
+            textHighScoreTime3.setText(String.format("3. %s", score));
+            textHighScoreTime4.setText(String.format("4. %s", score3));
+            textHighScoreTime5.setText(String.format("5. %s", score4));
+            textNew.setVisibility(View.VISIBLE);
         } else if (m == m3) {
             if ( s < s3) {
                 SharedPreferences.Editor edit = pref.edit();
@@ -264,11 +276,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                 edit.putString("score4", score3);
                 edit.putString("score5", score4);
                 edit.commit();
-                textHighScoreTime1.setText(score1);
-                textHighScoreTime2.setText(score2);
-                textHighScoreTime3.setText(score);
-                textHighScoreTime4.setText(score3);
-                textHighScoreTime5.setText(score4);
+                textHighScoreTime1.setText(String.format("1. %s", score1));
+                textHighScoreTime2.setText(String.format("2. %s", score2));
+                textHighScoreTime3.setText(String.format("3. %s", score));
+                textHighScoreTime4.setText(String.format("4. %s", score3));
+                textHighScoreTime5.setText(String.format("5. %s", score4));
+                textNew.setVisibility(View.VISIBLE);
             } else if (s == s3) {
                 if (ms < ms3) {
                     SharedPreferences.Editor edit = pref.edit();
@@ -276,11 +289,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                     edit.putString("score4", score3);
                     edit.putString("score5", score4);
                     edit.commit();
-                    textHighScoreTime1.setText(score1);
-                    textHighScoreTime2.setText(score2);
-                    textHighScoreTime3.setText(score);
-                    textHighScoreTime4.setText(score3);
-                    textHighScoreTime5.setText(score4);
+                    textHighScoreTime1.setText(String.format("1. %s", score1));
+                    textHighScoreTime2.setText(String.format("2. %s", score2));
+                    textHighScoreTime3.setText(String.format("3. %s", score));
+                    textHighScoreTime4.setText(String.format("4. %s", score3));
+                    textHighScoreTime5.setText(String.format("5. %s", score4));
+                    textNew.setVisibility(View.VISIBLE);
                 } else if (ms >= ms3) {
                     score4check();
                 }
@@ -301,11 +315,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
             edit.putString("score4", score3);
             edit.putString("score5", score4);
             edit.commit();
-            textHighScoreTime1.setText(score1);
-            textHighScoreTime2.setText(score);
-            textHighScoreTime3.setText(score2);
-            textHighScoreTime4.setText(score3);
-            textHighScoreTime5.setText(score4);
+            textHighScoreTime1.setText(String.format("1. %s", score1));
+            textHighScoreTime2.setText(String.format("2. %s", score));
+            textHighScoreTime3.setText(String.format("3. %s", score2));
+            textHighScoreTime4.setText(String.format("4. %s", score3));
+            textHighScoreTime5.setText(String.format("5. %s", score4));
+            textNew.setVisibility(View.VISIBLE);
         } else if (m == m2) {
             if (s < s2) {
                 SharedPreferences.Editor edit = pref.edit();
@@ -314,11 +329,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                 edit.putString("score4", score3);
                 edit.putString("score5", score4);
                 edit.commit();
-                textHighScoreTime1.setText(score1);
-                textHighScoreTime2.setText(score);
-                textHighScoreTime3.setText(score2);
-                textHighScoreTime4.setText(score3);
-                textHighScoreTime5.setText(score4);
+                textHighScoreTime1.setText(String.format("1. %s", score1));
+                textHighScoreTime2.setText(String.format("2. %s", score));
+                textHighScoreTime3.setText(String.format("3. %s", score2));
+                textHighScoreTime4.setText(String.format("4. %s", score3));
+                textHighScoreTime5.setText(String.format("5. %s", score4));
+                textNew.setVisibility(View.VISIBLE);
             } else if (s == s2) {
                 if (ms < ms2) {
                     SharedPreferences.Editor edit = pref.edit();
@@ -327,11 +343,12 @@ public class ScoreZone extends AppCompatActivity implements View.OnClickListener
                     edit.putString("score4", score3);
                     edit.putString("score5", score4);
                     edit.commit();
-                    textHighScoreTime1.setText(score1);
-                    textHighScoreTime2.setText(score);
-                    textHighScoreTime3.setText(score2);
-                    textHighScoreTime4.setText(score3);
-                    textHighScoreTime5.setText(score4);
+                    textHighScoreTime1.setText(String.format("1. %s", score1));
+                    textHighScoreTime2.setText(String.format("2. %s", score));
+                    textHighScoreTime3.setText(String.format("3. %s", score2));
+                    textHighScoreTime4.setText(String.format("4. %s", score3));
+                    textHighScoreTime5.setText(String.format("5. %s", score4));
+                    textNew.setVisibility(View.VISIBLE);
                 } else if (ms >= ms2) {
                     score3check();
                 }
